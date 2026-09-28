@@ -1,3 +1,30 @@
 [gd_scene format=3 uid="uid://cwqwxhvrnj2ng"]
 
-[node name="Player" type="Node2D" unique_id=1971425197]
+[ext_resource type="Script" uid="uid://dj4x4ttm2s2lk" path="res://Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://bsuc427ivsofb" path="res://Assets/player.png" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://bdpfygchw1hvu" path="res://Core/FSM/state_machine.gd" id="3_k53q1"]
+[ext_resource type="Script" uid="uid://dc187wlk0x6w1" path="res://Player/States/idle.gd" id="4_fhl08"]
+[ext_resource type="Script" uid="uid://b3t7ejt1qvkue" path="res://Player/States/run.gd" id="5_k53q1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hk4vj"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D" unique_id=1506565469]
+collision_layer = 2
+script = ExtResource("1_4ntmi")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=467395404]
+texture = ExtResource("1_l8h54")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1559689030]
+shape = SubResource("RectangleShape2D_hk4vj")
+
+[node name="MovementStateMachine" type="Node" parent="." unique_id=945227449 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_k53q1")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="MovementStateMachine" unique_id=1724377113]
+script = ExtResource("4_fhl08")
+
+[node name="Run" type="Node" parent="MovementStateMachine" unique_id=1499859646]
+script = ExtResource("5_k53q1")

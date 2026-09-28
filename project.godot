@@ -13,7 +13,7 @@ config_version=5
 config/name="Project-G"
 run/main_scene="res://Levels/test_scene.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://Exports/icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [display]
 
@@ -27,7 +27,8 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
-"res://Exports/": "gray",
+"res://Assets/": "gray",
+"res://Core/": "orange",
 "res://Levels/": "blue",
 "res://Player/": "purple"
 }
