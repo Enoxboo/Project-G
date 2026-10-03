@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://dj4x4ttm2s2lk" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bsuc427ivsofb" path="res://Assets/player.png" id="1_l8h54"]
 [ext_resource type="Resource" uid="uid://xctyol8fgyix" path="res://Player/player_data.tres" id="2_fhl08"]
+[ext_resource type="Script" uid="uid://ba5ormvx1un17" path="res://Core/FSM/state_machine.gd" id="4_00tjw"]
+[ext_resource type="Script" uid="uid://dp0tdfe01r4n4" path="res://Player/States/idle.gd" id="5_x3vf3"]
+[ext_resource type="Script" uid="uid://bbq2bx7b8rnly" path="res://Player/States/run.gd" id="6_apopc"]
+[ext_resource type="Script" uid="uid://c1bauvwtbvub7" path="res://Player/States/dash.gd" id="7_5htga"]
+[ext_resource type="Script" uid="uid://1lkvlw5n5po0" path="res://Player/States/knockback.gd" id="8_p5o4e"]
+[ext_resource type="Script" uid="uid://f7d0kjhc275" path="res://Player/States/death.gd" id="9_gu6f8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk4vj"]
 size = Vector2(16, 16)
@@ -17,3 +23,33 @@ texture = ExtResource("1_l8h54")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1559689030]
 shape = SubResource("RectangleShape2D_hk4vj")
+
+[node name="StateMachine" type="Node" parent="." unique_id=319252064]
+script = ExtResource("4_00tjw")
+metadata/_custom_type_script = "uid://ba5ormvx1un17"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=67378277]
+script = ExtResource("5_x3vf3")
+metadata/_custom_type_script = "uid://cwbnq2pxg8402"
+
+[node name="Run" type="Node" parent="StateMachine" unique_id=2080812079]
+script = ExtResource("6_apopc")
+metadata/_custom_type_script = "uid://cwbnq2pxg8402"
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=1179672248]
+script = ExtResource("7_5htga")
+metadata/_custom_type_script = "uid://cwbnq2pxg8402"
+
+[node name="DashTimer" type="Timer" parent="StateMachine/Dash" unique_id=2091647093]
+one_shot = true
+
+[node name="Knockback" type="Node" parent="StateMachine" unique_id=1028745626]
+script = ExtResource("8_p5o4e")
+metadata/_custom_type_script = "uid://cwbnq2pxg8402"
+
+[node name="KBTimer" type="Timer" parent="StateMachine/Knockback" unique_id=1803038679]
+one_shot = true
+
+[node name="Death" type="Node" parent="StateMachine" unique_id=347381767]
+script = ExtResource("9_gu6f8")
+metadata/_custom_type_script = "uid://cwbnq2pxg8402"

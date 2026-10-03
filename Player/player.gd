@@ -1,57 +1,18 @@
 extends CharacterBody2D
 class_name Player
 
-enum State {
-	IDLE,
-	RUN,
-}
 @export var data: PlayerData
-var current_state: State = State.IDLE
 
+var input_direction: Vector2 = Vector2.ZERO
+var last_direction: Vector2 = Vector2.RIGHT
 
-func _ready() -> void:
-	enter()
+@onready var state_machine: StateMachine = $StateMachine
 
 
 func _physics_process(_delta: float) -> void:
-	var previous_state: State = current_state
-	update()
-	if current_state != previous_state:
-		update()
+	if Input.is_action_just_pressed("debug_self_hurt"):
+		state_machine.change_state(PlayerState.KNOCKBACK, {"kb_direction": Vector2.RIGHT})
+
+	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	state_machine.physics_update()
 	move_and_slide()
-
-
-func enter() -> void:
-	match current_state:
-		State.IDLE:
-			velocity = Vector2.ZERO
-		State.RUN:
-			pass
-
-
-func update() -> void:
-	var input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	match current_state:
-		State.IDLE:
-			if not input_direction.is_zero_approx():
-				change_state(State.RUN)
-				return
-		State.RUN:
-			velocity = data.speed * input_direction
-			if input_direction.is_zero_approx():
-				change_state(State.IDLE)
-				return
-
-
-func exit() -> void:
-	match current_state:
-		State.IDLE:
-			pass
-		State.RUN:
-			pass
-
-
-func change_state(new_state: State) -> void:
-	exit()
-	current_state = new_state
-	enter()
