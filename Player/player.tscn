@@ -3,12 +3,17 @@
 [ext_resource type="Script" uid="uid://dj4x4ttm2s2lk" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bsuc427ivsofb" path="res://Assets/player.png" id="1_l8h54"]
 [ext_resource type="Resource" uid="uid://xctyol8fgyix" path="res://Player/player_data.tres" id="2_fhl08"]
+[ext_resource type="Resource" uid="uid://cq7kpl27fgpwb" path="res://Player/Spells/spell_test_1.tres" id="3_p5o4e"]
 [ext_resource type="Script" uid="uid://ba5ormvx1un17" path="res://Core/FSM/state_machine.gd" id="4_00tjw"]
-[ext_resource type="Script" uid="uid://dp0tdfe01r4n4" path="res://Player/States/idle.gd" id="5_x3vf3"]
-[ext_resource type="Script" uid="uid://bbq2bx7b8rnly" path="res://Player/States/run.gd" id="6_apopc"]
-[ext_resource type="Script" uid="uid://c1bauvwtbvub7" path="res://Player/States/dash.gd" id="7_5htga"]
-[ext_resource type="Script" uid="uid://1lkvlw5n5po0" path="res://Player/States/knockback.gd" id="8_p5o4e"]
-[ext_resource type="Script" uid="uid://f7d0kjhc275" path="res://Player/States/death.gd" id="9_gu6f8"]
+[ext_resource type="Resource" uid="uid://qamb4r5fvqaa" path="res://Player/Spells/spell_test_2.tres" id="4_gu6f8"]
+[ext_resource type="Script" uid="uid://dp0tdfe01r4n4" path="res://Player/States/Movement/idle.gd" id="5_x3vf3"]
+[ext_resource type="Script" uid="uid://bbq2bx7b8rnly" path="res://Player/States/Movement/run.gd" id="6_apopc"]
+[ext_resource type="Script" uid="uid://c1bauvwtbvub7" path="res://Player/States/Movement/dash.gd" id="7_5htga"]
+[ext_resource type="Script" uid="uid://1lkvlw5n5po0" path="res://Player/States/Movement/knockback.gd" id="8_p5o4e"]
+[ext_resource type="Script" uid="uid://f7d0kjhc275" path="res://Player/States/Movement/death.gd" id="9_gu6f8"]
+[ext_resource type="Script" uid="uid://bnt8udllukwdq" path="res://Player/States/Action/ready.gd" id="10_apopc"]
+[ext_resource type="Script" uid="uid://cis077vcwltq8" path="res://Player/States/Action/casting.gd" id="13_gu6f8"]
+[ext_resource type="Script" uid="uid://2lv2p7m1uav1" path="res://Player/States/Action/disabled.gd" id="14_gu6f8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk4vj"]
 size = Vector2(16, 16)
@@ -17,6 +22,8 @@ size = Vector2(16, 16)
 collision_layer = 2
 script = ExtResource("1_4ntmi")
 data = ExtResource("2_fhl08")
+spell_1 = ExtResource("3_p5o4e")
+spell_2 = ExtResource("4_gu6f8")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=467395404]
 texture = ExtResource("1_l8h54")
@@ -53,3 +60,23 @@ one_shot = true
 [node name="Death" type="Node" parent="MovementStateMachine" unique_id=347381767]
 script = ExtResource("9_gu6f8")
 metadata/_custom_type_script = "uid://cwbnq2pxg8402"
+
+[node name="ActionStateMachine" type="Node" parent="." unique_id=1240959694 node_paths=PackedStringArray("first_state")]
+script = ExtResource("4_00tjw")
+first_state = NodePath("Ready")
+metadata/_custom_type_script = "uid://ba5ormvx1un17"
+
+[node name="Ready" type="Node" parent="ActionStateMachine" unique_id=2119677338]
+script = ExtResource("10_apopc")
+metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
+
+[node name="Casting" type="Node" parent="ActionStateMachine" unique_id=1946567919]
+script = ExtResource("13_gu6f8")
+metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
+
+[node name="CastingTimer" type="Timer" parent="ActionStateMachine/Casting" unique_id=1459662062]
+one_shot = true
+
+[node name="Disabled" type="Node" parent="ActionStateMachine" unique_id=102878201]
+script = ExtResource("14_gu6f8")
+metadata/_custom_type_script = "uid://ddf1i88vs5cc3"

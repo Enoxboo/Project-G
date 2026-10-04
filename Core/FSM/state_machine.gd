@@ -7,18 +7,24 @@ var current_state: State
 
 func _ready() -> void:
 	for child in get_children():
-		if child is not State:
-			continue
+		if child is State:
+			if not first_state:
+				first_state = child
+			child.transition.connect(change_state)
 
-		if not first_state:
-			first_state = child
-		child.transition.connect(change_state)
+	if not first_state:
+		push_error("Need at least one state in " + self.name)
+		return
+
 	current_state = first_state
 	await owner.ready
 	current_state.enter()
 
 
 func physics_update() -> void:
+	if not current_state:
+		return
+
 	var previous_state: State = current_state
 	current_state.update()
 	if current_state != previous_state:

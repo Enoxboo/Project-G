@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://cq7kpl27fgpwb"]
+
+[ext_resource type="Script" uid="uid://bk8vu1imgi3md" path="res://Player/Spells/spell_data.gd" id="1_x75gw"]
+
+[resource]
+script = ExtResource("1_x75gw")
+name = &"Instant"
+metadata/_custom_type_script = "uid://bk8vu1imgi3md"
