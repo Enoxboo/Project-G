@@ -1,4 +1,4 @@
-extends PlayerState
+extends PlayerMovementState
 
 @onready var kb_timer: Timer = $KBTimer
 var debug_kb_strength: float = 100.0

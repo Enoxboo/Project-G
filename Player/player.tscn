@@ -24,32 +24,32 @@ texture = ExtResource("1_l8h54")
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1559689030]
 shape = SubResource("RectangleShape2D_hk4vj")
 
-[node name="StateMachine" type="Node" parent="." unique_id=319252064]
+[node name="MovementStateMachine" type="Node" parent="." unique_id=319252064]
 script = ExtResource("4_00tjw")
 metadata/_custom_type_script = "uid://ba5ormvx1un17"
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=67378277]
+[node name="Idle" type="Node" parent="MovementStateMachine" unique_id=67378277]
 script = ExtResource("5_x3vf3")
 metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
-[node name="Run" type="Node" parent="StateMachine" unique_id=2080812079]
+[node name="Run" type="Node" parent="MovementStateMachine" unique_id=2080812079]
 script = ExtResource("6_apopc")
 metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
-[node name="Dash" type="Node" parent="StateMachine" unique_id=1179672248]
+[node name="Dash" type="Node" parent="MovementStateMachine" unique_id=1179672248]
 script = ExtResource("7_5htga")
 metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
-[node name="DashTimer" type="Timer" parent="StateMachine/Dash" unique_id=2091647093]
+[node name="DashTimer" type="Timer" parent="MovementStateMachine/Dash" unique_id=2091647093]
 one_shot = true
 
-[node name="Knockback" type="Node" parent="StateMachine" unique_id=1028745626]
+[node name="Knockback" type="Node" parent="MovementStateMachine" unique_id=1028745626]
 script = ExtResource("8_p5o4e")
 metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
-[node name="KBTimer" type="Timer" parent="StateMachine/Knockback" unique_id=1803038679]
+[node name="KBTimer" type="Timer" parent="MovementStateMachine/Knockback" unique_id=1803038679]
 one_shot = true
 
-[node name="Death" type="Node" parent="StateMachine" unique_id=347381767]
+[node name="Death" type="Node" parent="MovementStateMachine" unique_id=347381767]
 script = ExtResource("9_gu6f8")
 metadata/_custom_type_script = "uid://cwbnq2pxg8402"

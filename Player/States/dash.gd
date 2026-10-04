@@ -1,4 +1,4 @@
-extends PlayerState
+extends PlayerMovementState
 
 @onready var dash_timer: Timer = $DashTimer
 
