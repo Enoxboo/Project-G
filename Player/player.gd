@@ -5,6 +5,7 @@ class_name Player
 
 var input_direction: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
+var speed_multiplier: float = 1.0
 
 @onready var movement_state_machine: StateMachine = $MovementStateMachine
 
