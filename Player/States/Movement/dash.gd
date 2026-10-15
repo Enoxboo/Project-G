@@ -13,7 +13,7 @@ func update() -> void:
 	if not dash_timer.is_stopped():
 		return
 
-	if player.input_direction.is_zero_approx():
+	if player.intent.movement_direction.is_zero_approx():
 		transition.emit(IDLE)
 		return
 	else:
