@@ -1,9 +1,9 @@
 extends State
-class_name PlayerState
+class_name EntityState
 
-var player: Player
+var entity: Entity
 
 
 func _ready() -> void:
 	await owner.ready
-	player = owner
+	entity = owner

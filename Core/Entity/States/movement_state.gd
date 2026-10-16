@@ -1,5 +1,5 @@
-extends PlayerState
-class_name PlayerMovementState
+extends EntityState
+class_name MovementState
 
 const IDLE: StringName = &"Idle"
 const RUN: StringName = &"Run"

@@ -6,26 +6,26 @@
 [ext_resource type="Resource" uid="uid://cq7kpl27fgpwb" path="res://Player/Spells/spell_test_1.tres" id="3_p5o4e"]
 [ext_resource type="Script" uid="uid://ba5ormvx1un17" path="res://Core/FSM/state_machine.gd" id="4_00tjw"]
 [ext_resource type="Resource" uid="uid://qamb4r5fvqaa" path="res://Player/Spells/spell_test_2.tres" id="4_gu6f8"]
-[ext_resource type="Script" uid="uid://dp0tdfe01r4n4" path="res://Player/States/Movement/idle.gd" id="5_x3vf3"]
-[ext_resource type="Script" uid="uid://bbq2bx7b8rnly" path="res://Player/States/Movement/run.gd" id="6_apopc"]
+[ext_resource type="Script" uid="uid://dp0tdfe01r4n4" path="res://Core/Entity/States/Movement/idle.gd" id="5_x3vf3"]
+[ext_resource type="Script" uid="uid://bbq2bx7b8rnly" path="res://Core/Entity/States/Movement/run.gd" id="6_apopc"]
 [ext_resource type="Script" uid="uid://c1bauvwtbvub7" path="res://Player/States/Movement/dash.gd" id="7_5htga"]
-[ext_resource type="Script" uid="uid://1lkvlw5n5po0" path="res://Player/States/Movement/knockback.gd" id="8_p5o4e"]
-[ext_resource type="Script" uid="uid://f7d0kjhc275" path="res://Player/States/Movement/death.gd" id="9_gu6f8"]
-[ext_resource type="Script" uid="uid://bnt8udllukwdq" path="res://Player/States/Action/ready.gd" id="10_apopc"]
-[ext_resource type="Script" uid="uid://cis077vcwltq8" path="res://Player/States/Action/casting.gd" id="13_gu6f8"]
-[ext_resource type="Script" uid="uid://2lv2p7m1uav1" path="res://Player/States/Action/disabled.gd" id="14_gu6f8"]
+[ext_resource type="Script" uid="uid://1lkvlw5n5po0" path="res://Core/Entity/States/Movement/knockback.gd" id="8_p5o4e"]
+[ext_resource type="Script" uid="uid://f7d0kjhc275" path="res://Core/Entity/States/Movement/death.gd" id="9_gu6f8"]
+[ext_resource type="Script" uid="uid://bnt8udllukwdq" path="res://Core/Entity/States/Action/ready.gd" id="10_apopc"]
+[ext_resource type="Script" uid="uid://cis077vcwltq8" path="res://Core/Entity/States/Action/windup.gd" id="13_gu6f8"]
+[ext_resource type="Script" uid="uid://2lv2p7m1uav1" path="res://Core/Entity/States/Action/disabled.gd" id="14_gu6f8"]
 [ext_resource type="Script" uid="uid://cd4sv82y0bl3a" path="res://Player/player_controller.gd" id="15_dkpta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk4vj"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" unique_id=1506565469 node_paths=PackedStringArray("controller")]
+[node name="Player" type="CharacterBody2D" unique_id=1506565469 node_paths=PackedStringArray("controller") groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_4ntmi")
 data = ExtResource("2_fhl08")
-spell_1 = ExtResource("3_p5o4e")
-spell_2 = ExtResource("4_gu6f8")
 controller = NodePath("PlayerController")
+action_1 = ExtResource("3_p5o4e")
+action_2 = ExtResource("4_gu6f8")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=467395404]
 texture = ExtResource("1_l8h54")
@@ -33,35 +33,34 @@ texture = ExtResource("1_l8h54")
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1559689030]
 shape = SubResource("RectangleShape2D_hk4vj")
 
+[node name="PlayerController" type="Node2D" parent="." unique_id=692993646]
+script = ExtResource("15_dkpta")
+metadata/_custom_type_script = "uid://cd4sv82y0bl3a"
+
 [node name="MovementStateMachine" type="Node" parent="." unique_id=319252064]
 script = ExtResource("4_00tjw")
 metadata/_custom_type_script = "uid://ba5ormvx1un17"
 
 [node name="Idle" type="Node" parent="MovementStateMachine" unique_id=67378277]
 script = ExtResource("5_x3vf3")
-metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
 [node name="Run" type="Node" parent="MovementStateMachine" unique_id=2080812079]
 script = ExtResource("6_apopc")
-metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
 [node name="Dash" type="Node" parent="MovementStateMachine" unique_id=1179672248]
 script = ExtResource("7_5htga")
-metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
 [node name="DashTimer" type="Timer" parent="MovementStateMachine/Dash" unique_id=2091647093]
 one_shot = true
 
 [node name="Knockback" type="Node" parent="MovementStateMachine" unique_id=1028745626]
 script = ExtResource("8_p5o4e")
-metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
 [node name="KBTimer" type="Timer" parent="MovementStateMachine/Knockback" unique_id=1803038679]
 one_shot = true
 
 [node name="Death" type="Node" parent="MovementStateMachine" unique_id=347381767]
 script = ExtResource("9_gu6f8")
-metadata/_custom_type_script = "uid://cwbnq2pxg8402"
 
 [node name="ActionStateMachine" type="Node" parent="." unique_id=1240959694 node_paths=PackedStringArray("first_state")]
 script = ExtResource("4_00tjw")
@@ -72,17 +71,13 @@ metadata/_custom_type_script = "uid://ba5ormvx1un17"
 script = ExtResource("10_apopc")
 metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
 
-[node name="Casting" type="Node" parent="ActionStateMachine" unique_id=1946567919]
+[node name="Windup" type="Node" parent="ActionStateMachine" unique_id=1946567919]
 script = ExtResource("13_gu6f8")
 metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
 
-[node name="CastingTimer" type="Timer" parent="ActionStateMachine/Casting" unique_id=1459662062]
+[node name="WindupTimer" type="Timer" parent="ActionStateMachine/Windup" unique_id=1459662062]
 one_shot = true
 
 [node name="Disabled" type="Node" parent="ActionStateMachine" unique_id=102878201]
 script = ExtResource("14_gu6f8")
 metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
-
-[node name="PlayerController" type="Node2D" parent="." unique_id=2046544627]
-script = ExtResource("15_dkpta")
-metadata/_custom_type_script = "uid://cd4sv82y0bl3a"

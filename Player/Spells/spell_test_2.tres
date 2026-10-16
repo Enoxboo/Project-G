@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_jx6jw")
 name = &"Long"
-casting_time = 1.04
+windup_time = 2.0
 metadata/_custom_type_script = "uid://bk8vu1imgi3md"

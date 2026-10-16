@@ -1,14 +1,14 @@
-extends PlayerMovementState
+extends MovementState
 
 
 func enter(_external_entries: Dictionary = {}) -> void:
-	player.velocity = Vector2.ZERO
+	entity.velocity = Vector2.ZERO
 
 
 func update() -> void:
-	if not player.intent.movement_direction.is_zero_approx():
+	if not entity.intent.movement_direction.is_zero_approx():
 		transition.emit(RUN)
 		return
-	elif player.intent.dash:
+	elif entity.intent.dash:
 		transition.emit(DASH)
 		return

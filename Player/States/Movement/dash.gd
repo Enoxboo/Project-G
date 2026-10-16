@@ -1,19 +1,20 @@
-extends PlayerMovementState
+extends MovementState
 
 @onready var dash_timer: Timer = $DashTimer
 
 
 func enter(_external_entries: Dictionary = {}) -> void:
 	#enlève la hurtbox
-	player.velocity = player.last_direction * player.data.dash_strength
-	dash_timer.start(player.data.dash_time)
+	var data: PlayerData = entity.data
+	entity.velocity = entity.last_direction * data.dash_strength
+	dash_timer.start(data.dash_time)
 
 
 func update() -> void:
 	if not dash_timer.is_stopped():
 		return
 
-	if player.intent.movement_direction.is_zero_approx():
+	if entity.intent.movement_direction.is_zero_approx():
 		transition.emit(IDLE)
 		return
 	else:

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://d21ubccr8ewee"]
+
+[ext_resource type="Script" uid="uid://k4wofwvq64ah" path="res://Core/Entity/Data/entity_data.gd" id="1_c1cvv"]
+
+[resource]
+script = ExtResource("1_c1cvv")
+speed = 10.0
+metadata/_custom_type_script = "uid://k4wofwvq64ah"

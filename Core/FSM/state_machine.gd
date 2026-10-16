@@ -12,9 +12,7 @@ func _ready() -> void:
 				first_state = child
 			child.transition.connect(change_state)
 
-	if not first_state:
-		push_error("Need at least one state in " + self.name)
-		return
+	assert(first_state, "Need at least one state in " + self.name)
 
 	current_state = first_state
 	await owner.ready
@@ -32,9 +30,7 @@ func physics_update() -> void:
 
 
 func change_state(new_state: StringName, dictionary: Dictionary = {}) -> void:
-	if not has_node(NodePath(new_state)):
-		push_error("No State named : " + new_state)
-		return
+	assert(has_node(NodePath(new_state)), "No State named : " + new_state)
 
 	current_state.exit()
 	current_state = get_node(NodePath(new_state)) as State
