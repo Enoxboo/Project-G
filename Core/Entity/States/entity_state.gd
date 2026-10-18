@@ -1,6 +1,8 @@
 extends State
 class_name EntityState
 
+const HP_ZERO: StringName = &"hp_zero"
+
 var entity: Entity
 
 

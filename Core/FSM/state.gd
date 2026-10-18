@@ -15,3 +15,7 @@ func update() -> void:
 
 func exit() -> void:
 	pass
+
+
+func trigger_event(_name: StringName, _external_entries: Dictionary) -> void:
+	pass

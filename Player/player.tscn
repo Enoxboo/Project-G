@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cis077vcwltq8" path="res://Core/Entity/States/Action/windup.gd" id="13_gu6f8"]
 [ext_resource type="Script" uid="uid://2lv2p7m1uav1" path="res://Core/Entity/States/Action/disabled.gd" id="14_gu6f8"]
 [ext_resource type="Script" uid="uid://cd4sv82y0bl3a" path="res://Player/player_controller.gd" id="15_dkpta"]
+[ext_resource type="Script" uid="uid://bhboo2yxrnbx3" path="res://Core/Components/Health/health.gd" id="16_lfmf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk4vj"]
 size = Vector2(16, 16)
@@ -37,8 +38,9 @@ shape = SubResource("RectangleShape2D_hk4vj")
 script = ExtResource("15_dkpta")
 metadata/_custom_type_script = "uid://cd4sv82y0bl3a"
 
-[node name="MovementStateMachine" type="Node" parent="." unique_id=319252064]
+[node name="MovementStateMachine" type="Node" parent="." unique_id=319252064 node_paths=PackedStringArray("first_state")]
 script = ExtResource("4_00tjw")
+first_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://ba5ormvx1un17"
 
 [node name="Idle" type="Node" parent="MovementStateMachine" unique_id=67378277]
@@ -81,3 +83,7 @@ one_shot = true
 [node name="Disabled" type="Node" parent="ActionStateMachine" unique_id=102878201]
 script = ExtResource("14_gu6f8")
 metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
+
+[node name="Health" type="Node" parent="." unique_id=1770523736]
+script = ExtResource("16_lfmf2")
+metadata/_custom_type_script = "uid://bhboo2yxrnbx3"

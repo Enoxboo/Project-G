@@ -35,3 +35,7 @@ func change_state(new_state: StringName, dictionary: Dictionary = {}) -> void:
 	current_state.exit()
 	current_state = get_node(NodePath(new_state)) as State
 	current_state.enter(dictionary)
+
+
+func deliver_event(event_name: StringName, dictionary: Dictionary = {}) -> void:
+	current_state.trigger_event(event_name, dictionary)

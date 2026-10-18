@@ -16,6 +16,9 @@ func _ready() -> void:
 	for child in get_children():
 		if child is StateMachine:
 			state_machines.append(child)
+		if child is Health:
+			child.hp_zero.connect(_on_hp_zero)
+			child.health_changed.connect(_on_health_changed)
 
 	assert(controller, "Need a controller in " + self.name)
 
@@ -25,3 +28,13 @@ func _physics_process(_delta: float) -> void:
 	for state_machine in state_machines:
 		state_machine.physics_update()
 	move_and_slide()
+
+
+func _on_hp_zero() -> void:
+	for state_machine in state_machines:
+		state_machine.deliver_event(EntityState.HP_ZERO, {})
+
+
+func _on_health_changed(_old_value: int, _new_value: int) -> void:
+	#animation de dégat ou de soin
+	pass
