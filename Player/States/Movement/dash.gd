@@ -4,8 +4,8 @@ extends MovementState
 
 
 func enter(_external_entries: Dictionary = {}) -> void:
-	#enlève la hurtbox
 	var data: PlayerData = entity.data
+	entity.hurtbox.deactivate_hurtbox_for(data.i_time)
 	entity.velocity = entity.last_direction * data.dash_strength
 	dash_timer.start(data.dash_time)
 

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://lhhy4tqrr168"]
+
+[ext_resource type="Script" uid="uid://cad831in5tqri" path="res://Core/Components/hurtbox.gd" id="1_qnfpo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iysjv"]
+
+[node name="Hurtbox" type="Area2D" unique_id=2057581375]
+collision_layer = 68
+collision_mask = 0
+script = ExtResource("1_qnfpo")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1823017703]
+shape = SubResource("RectangleShape2D_iysjv")
+
+[node name="DeactivateTime" type="Timer" parent="." unique_id=1845883735]
+one_shot = true
+
+[connection signal="timeout" from="DeactivateTime" to="." method="_on_deactivate_time_timeout"]

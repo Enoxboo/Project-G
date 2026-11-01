@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cwqwxhvrnj2ng" path="res://Player/player.tscn" id="1_g54tn"]
 [ext_resource type="Texture2D" uid="uid://bn4jetfub55hw" path="res://Assets/tilemap.png" id="2_dc6q1"]
 [ext_resource type="PackedScene" uid="uid://dg0mx5vpabf2k" path="res://Enemy/Species/Dummy/dummy.tscn" id="3_dc6q1"]
+[ext_resource type="PackedScene" uid="uid://c41rh40r3gpfx" path="res://Core/Components/hitbox.tscn" id="4_q5m1e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5krfb"]
 texture = ExtResource("2_dc6q1")
@@ -41,3 +42,7 @@ position = Vector2(29, 83)
 
 [node name="Dummy" parent="." unique_id=385153685 instance=ExtResource("3_dc6q1")]
 position = Vector2(285, 89)
+
+[node name="Hitbox" parent="." unique_id=1081346483 node_paths=PackedStringArray("source") instance=ExtResource("4_q5m1e")]
+position = Vector2(284, 62)
+source = NodePath("../Player")

@@ -27,3 +27,10 @@ func do_action() -> void:
 	print("Doing " + action.name)
 	transition.emit(READY)
 	return
+
+
+func trigger_event(title: StringName, external_entries: Dictionary) -> void:
+	super.trigger_event(title, external_entries)
+	match title:
+		EntityState.HIT:
+			transition.emit(READY)

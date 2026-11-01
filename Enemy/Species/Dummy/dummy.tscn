@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://ba5ormvx1un17" path="res://Core/FSM/state_machine.gd" id="4_p07k7"]
 [ext_resource type="Script" uid="uid://dp0tdfe01r4n4" path="res://Core/Entity/States/Movement/idle.gd" id="6_p07k7"]
 [ext_resource type="Script" uid="uid://bbq2bx7b8rnly" path="res://Core/Entity/States/Movement/run.gd" id="7_f35ph"]
+[ext_resource type="Script" uid="uid://1lkvlw5n5po0" path="res://Core/Entity/States/Movement/knockback.gd" id="8_161r8"]
+[ext_resource type="PackedScene" uid="uid://lhhy4tqrr168" path="res://Core/Components/hurtbox.tscn" id="8_h6fik"]
+[ext_resource type="Script" uid="uid://f7d0kjhc275" path="res://Core/Entity/States/Movement/death.gd" id="9_pquud"]
+[ext_resource type="Script" uid="uid://bhboo2yxrnbx3" path="res://Core/Components/Health/health.gd" id="9_xngfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iysjv"]
 size = Vector2(16, 16)
@@ -37,3 +41,21 @@ script = ExtResource("6_p07k7")
 
 [node name="Run" type="Node" parent="MovementStateMachine" unique_id=825699568]
 script = ExtResource("7_f35ph")
+
+[node name="Knockback" type="Node" parent="MovementStateMachine" unique_id=2114952391]
+script = ExtResource("8_161r8")
+metadata/_custom_type_script = "uid://c5j0ef8nte5l8"
+
+[node name="KBTimer" type="Timer" parent="MovementStateMachine/Knockback" unique_id=454525991]
+one_shot = true
+
+[node name="Death" type="Node" parent="MovementStateMachine" unique_id=118702768]
+script = ExtResource("9_pquud")
+metadata/_custom_type_script = "uid://c5j0ef8nte5l8"
+
+[node name="Hurtbox" parent="." unique_id=2057581375 instance=ExtResource("8_h6fik")]
+collision_layer = 64
+
+[node name="Health" type="Node" parent="." unique_id=1018172600]
+script = ExtResource("9_xngfm")
+metadata/_custom_type_script = "uid://bhboo2yxrnbx3"

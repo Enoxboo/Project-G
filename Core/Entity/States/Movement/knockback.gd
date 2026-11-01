@@ -6,7 +6,8 @@ var debug_kb_time: float = 0.2
 
 
 func enter(external_entries: Dictionary = {}) -> void:
-	entity.velocity = debug_kb_strength * external_entries["kb_direction"]
+	var attack_details: AttackDetails = external_entries[EntityState.ATTACK]
+	entity.velocity = debug_kb_strength * attack_details.direction
 	kb_timer.start(debug_kb_time)
 
 

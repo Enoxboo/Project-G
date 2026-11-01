@@ -2,6 +2,8 @@ extends State
 class_name EntityState
 
 const HP_ZERO: StringName = &"hp_zero"
+const HIT: StringName = &"hit"
+const ATTACK: StringName = &"attack"
 
 var entity: Entity
 
