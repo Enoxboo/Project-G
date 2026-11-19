@@ -3,6 +3,7 @@ class_name ActionState
 
 const READY: StringName = &"Ready"
 const WINDUP: StringName = &"Windup"
+const ACTIVE: StringName = &"Active"
 const DISABLED: StringName = &"Disabled"
 
 

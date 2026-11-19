@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dcbtjyxj4vbm"]
+
+[ext_resource type="Script" uid="uid://tdyef3h4u7p1" path="res://Core/Spells/projectile.gd" id="1_75h81"]
+[ext_resource type="Texture2D" uid="uid://bsp2or056y36s" path="res://Assets/spell.png" id="2_yg5k7"]
+[ext_resource type="PackedScene" uid="uid://c41rh40r3gpfx" path="res://Core/Components/hitbox.tscn" id="3_mlho7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iysjv"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jas7b"]
+radius = 8.0
+
+[node name="Projectile" type="Area2D" unique_id=494479517]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_75h81")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=840783857]
+texture = ExtResource("2_yg5k7")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1479245305]
+shape = SubResource("CircleShape2D_iysjv")
+
+[node name="Hitbox" parent="." unique_id=1081346483 instance=ExtResource("3_mlho7")]
+
+[node name="CollisionShape" parent="Hitbox" index="0" unique_id=553464858]
+shape = SubResource("CircleShape2D_jas7b")
+debug_color = Color(0.9991004, 0, 0.13663247, 0.41960785)
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1561584314]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
+
+[editable path="Hitbox"]

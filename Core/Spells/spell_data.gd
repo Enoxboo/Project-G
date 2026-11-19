@@ -11,7 +11,6 @@ enum SpellType {
 @export var element: Elements.Type
 @export var spell_type: SpellType
 @export var speed: float = 500.0
-@export var active_time: float = 5.0
+@export var lifetime: float = 5.0
 @export var piercing_total: int = 0
-
-var hit_a_wall: bool = false
+@export var destroyed_on_wall: bool = true

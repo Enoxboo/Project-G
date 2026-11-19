@@ -1,8 +1,14 @@
 [gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://cq7kpl27fgpwb"]
 
 [ext_resource type="Script" uid="uid://bk8vu1imgi3md" path="res://Core/Spells/spell_data.gd" id="1_x75gw"]
+[ext_resource type="PackedScene" uid="uid://dcbtjyxj4vbm" path="res://Core/Spells/projectile.tscn" id="2_rd6ms"]
 
 [resource]
 script = ExtResource("1_x75gw")
+spell_type = 1
+speed = 300.0
+lifetime = 1.0
+piercing_total = 1
 name = &"Instant"
+spell_scene = ExtResource("2_rd6ms")
 metadata/_custom_type_script = "uid://bk8vu1imgi3md"

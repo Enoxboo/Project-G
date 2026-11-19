@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cis077vcwltq8" path="res://Core/Entity/States/Action/windup.gd" id="13_gu6f8"]
 [ext_resource type="Script" uid="uid://2lv2p7m1uav1" path="res://Core/Entity/States/Action/disabled.gd" id="14_gu6f8"]
 [ext_resource type="Script" uid="uid://cd4sv82y0bl3a" path="res://Player/player_controller.gd" id="15_dkpta"]
+[ext_resource type="Script" uid="uid://cyrfhfgixqsmj" path="res://Core/Entity/States/Action/active.gd" id="16_b1ygp"]
 [ext_resource type="Script" uid="uid://bhboo2yxrnbx3" path="res://Core/Components/Health/health.gd" id="16_lfmf2"]
 [ext_resource type="PackedScene" uid="uid://lhhy4tqrr168" path="res://Core/Components/hurtbox.tscn" id="17_pisgm"]
 
@@ -83,6 +84,10 @@ metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
 
 [node name="WindupTimer" type="Timer" parent="ActionStateMachine/Windup" unique_id=1459662062]
 one_shot = true
+
+[node name="Active" type="Node" parent="ActionStateMachine" unique_id=435224390]
+script = ExtResource("16_b1ygp")
+metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
 
 [node name="Disabled" type="Node" parent="ActionStateMachine" unique_id=102878201]
 script = ExtResource("14_gu6f8")
