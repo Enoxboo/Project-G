@@ -15,6 +15,12 @@ var hurtbox: Hurtbox
 
 
 func _ready() -> void:
+	_connect_children()
+	action_1 = action_1.duplicate()
+	action_2 = action_2.duplicate()
+
+
+func _connect_children() -> void:
 	for child in get_children():
 		if child is StateMachine:
 			state_machines.append(child)

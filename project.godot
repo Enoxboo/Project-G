@@ -81,8 +81,10 @@ dash={
 2d_physics/layer_1="Walls"
 2d_physics/layer_2="PlayerCollision"
 2d_physics/layer_3="PlayerHurtbox"
+2d_physics/layer_4="PlayerSpell"
 2d_physics/layer_6="EnemyCollision"
 2d_physics/layer_7="EnemyHurtbox"
+2d_physics/layer_8="EnemySpell"
 
 [physics]
 
