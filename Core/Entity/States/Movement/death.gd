@@ -3,6 +3,7 @@ extends MovementState
 
 func enter(_external_entries: Dictionary = {}) -> void:
 	entity.velocity = Vector2.ZERO
+	entity.hurtbox.disable()
 	print("You died")
 
 

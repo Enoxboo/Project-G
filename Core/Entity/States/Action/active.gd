@@ -2,7 +2,7 @@ extends ActionState
 
 
 func enter(external_entries: Dictionary = {}) -> void:
-	var action = external_entries["action"]
+	var action: ActionData = external_entries["action"]
 
 	var spell: Spell = action.spell_scene.instantiate() as Spell
 	assert(spell, "The instantiated scene is not a Spell.")

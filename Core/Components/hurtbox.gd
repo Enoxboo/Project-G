@@ -10,10 +10,19 @@ func on_hit(attack: AttackDetails) -> void:
 	was_hit.emit(attack)
 
 
-func deactivate_hurtbox_for(time: float) -> void:
-	deactivate_time.start(time)
+func disable() -> void:
+	deactivate_time.stop()
 	set_deferred(&"monitorable", false)
 
 
-func _on_deactivate_time_timeout() -> void:
+func enable() -> void:
 	set_deferred(&"monitorable", true)
+
+
+func disable_for(time: float) -> void:
+	disable()
+	deactivate_time.start(time)
+
+
+func _on_deactivate_time_timeout() -> void:
+	enable()
