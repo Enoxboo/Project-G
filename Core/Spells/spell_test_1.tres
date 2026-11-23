@@ -10,5 +10,6 @@ speed = 300.0
 lifetime = 1.0
 piercing_total = 1
 name = &"Instant"
+cooldown = 0.5
 spell_scene = ExtResource("2_rd6ms")
 metadata/_custom_type_script = "uid://bk8vu1imgi3md"

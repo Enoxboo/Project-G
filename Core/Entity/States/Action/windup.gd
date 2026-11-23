@@ -1,25 +1,25 @@
 extends ActionState
 
 @onready var windup_timer: Timer = $WindupTimer
-var action: ActionData
+var slot: Slot
 
 
 func enter(external_entries: Dictionary = {}) -> void:
-	action = external_entries["action"]
+	slot = external_entries["slot"]
 
-	if action.windup_time > 0.0:
-		windup_timer.start(action.windup_time)
+	if slot.action.windup_time > 0.0:
+		windup_timer.start(slot.action.windup_time)
 
 
 func update() -> void:
 	if not windup_timer.is_stopped():
 		return
 
-	transition.emit(ACTIVE, {"action": action})
+	transition.emit(ACTIVE, {"slot": slot})
 
 
 func exit() -> void:
-	action = null
+	slot = null
 	windup_timer.stop()
 
 

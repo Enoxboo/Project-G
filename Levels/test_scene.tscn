@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bn4jetfub55hw" path="res://Assets/tilemap.png" id="2_dc6q1"]
 [ext_resource type="PackedScene" uid="uid://dg0mx5vpabf2k" path="res://Enemy/Species/Dummy/dummy.tscn" id="3_dc6q1"]
 [ext_resource type="PackedScene" uid="uid://c41rh40r3gpfx" path="res://Core/Components/hitbox.tscn" id="4_q5m1e"]
-[ext_resource type="Resource" uid="uid://qamb4r5fvqaa" path="res://Core/Spells/spell_test_2.tres" id="4_u6qdh"]
-[ext_resource type="Resource" uid="uid://cq7kpl27fgpwb" path="res://Core/Spells/spell_test_1.tres" id="5_qps05"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5krfb"]
 texture = ExtResource("2_dc6q1")
@@ -44,8 +42,6 @@ position = Vector2(29, 83)
 
 [node name="Dummy" parent="." unique_id=385153685 instance=ExtResource("3_dc6q1")]
 position = Vector2(285, 89)
-action_1 = ExtResource("4_u6qdh")
-action_2 = ExtResource("5_qps05")
 
 [node name="Hitbox" parent="." unique_id=1081346483 node_paths=PackedStringArray("source") instance=ExtResource("4_q5m1e")]
 position = Vector2(284, 62)

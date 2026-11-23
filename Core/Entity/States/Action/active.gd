@@ -2,12 +2,13 @@ extends ActionState
 
 
 func enter(external_entries: Dictionary = {}) -> void:
-	var action: ActionData = external_entries["action"]
+	var slot: Slot = external_entries["slot"]
 
-	var spell: Spell = action.spell_scene.instantiate() as Spell
+	var spell: Spell = slot.action.spell_scene.instantiate() as Spell
 	assert(spell, "The instantiated scene is not a Spell.")
 
-	spell.setup(entity, entity.intent.target_point, action)
+	slot.start_cooldown()
+	spell.setup(entity, entity.intent.target_point, slot.action)
 	get_tree().current_scene.add_child(spell)
 
 

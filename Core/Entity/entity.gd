@@ -3,12 +3,13 @@ class_name Entity
 
 @export var data: EntityData
 @export var controller: Controller
-@export var action_1: ActionData
-@export var action_2: ActionData
+@export var actions: Array[ActionData]
 
 var last_direction: Vector2 = Vector2.RIGHT
 var intent: Intent = Intent.new()
+var slots: Array[Slot]
 var speed_multiplier: float = 1.0
+var cooldown_multiplier: float = 2.0
 var state_machines: Array[StateMachine] = []
 var health: Health
 var hurtbox: Hurtbox
@@ -16,8 +17,11 @@ var hurtbox: Hurtbox
 
 func _ready() -> void:
 	_connect_children()
-	action_1 = action_1.duplicate()
-	action_2 = action_2.duplicate()
+	for i in actions.size():
+		actions[i] = actions[i].duplicate() if actions[i] else null
+		slots.append(Slot.new())
+		slots[i].fill_slot(actions[i])
+	intent.actions.resize(slots.size())
 
 
 func _connect_children() -> void:
@@ -37,10 +41,13 @@ func _connect_children() -> void:
 	assert(hurtbox, "Need a hurtbox in " + self.name)
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	controller.fill_intent(intent)
 	for state_machine in state_machines:
 		state_machine.physics_update()
+	for slot in slots:
+		if not slot.is_ready():
+			slot.elapse_cooldown(delta * cooldown_multiplier)
 	move_and_slide()
 
 

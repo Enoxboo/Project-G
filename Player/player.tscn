@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dj4x4ttm2s2lk" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bsuc427ivsofb" path="res://Assets/player.png" id="1_l8h54"]
 [ext_resource type="Resource" uid="uid://xctyol8fgyix" path="res://Player/player_data.tres" id="2_fhl08"]
+[ext_resource type="Script" uid="uid://bhlg7lf1wrok7" path="res://Core/Entity/Data/action_data.gd" id="3_o28un"]
 [ext_resource type="Resource" uid="uid://cq7kpl27fgpwb" path="res://Core/Spells/spell_test_1.tres" id="3_p5o4e"]
 [ext_resource type="Script" uid="uid://ba5ormvx1un17" path="res://Core/FSM/state_machine.gd" id="4_00tjw"]
 [ext_resource type="Resource" uid="uid://qamb4r5fvqaa" path="res://Core/Spells/spell_test_2.tres" id="4_gu6f8"]
@@ -27,8 +28,7 @@ collision_layer = 2
 script = ExtResource("1_4ntmi")
 data = ExtResource("2_fhl08")
 controller = NodePath("PlayerController")
-action_1 = ExtResource("3_p5o4e")
-action_2 = ExtResource("4_gu6f8")
+actions = Array[ExtResource("3_o28un")]([ExtResource("3_p5o4e"), ExtResource("4_gu6f8"), null])
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=467395404]
 texture = ExtResource("1_l8h54")
