@@ -36,7 +36,9 @@ func hit_hurtbox(hurtbox: Hurtbox) -> void:
 
 func hit_everything_inside() -> void:
 	for area in get_overlapping_areas():
-		hit_hurtbox(area as Hurtbox)
+		var hurtbox: Hurtbox = area as Hurtbox
+		if hurtbox:
+			hit_hurtbox(hurtbox)
 
 
 func _on_area_entered(hurtbox: Hurtbox) -> void:

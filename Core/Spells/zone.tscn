@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bj762qdp0aov0"]
+
+[ext_resource type="Script" uid="uid://bscjjabhv0x3m" path="res://Core/Spells/zone.gd" id="1_1k8g1"]
+[ext_resource type="Texture2D" uid="uid://bsuc427ivsofb" path="res://Assets/player.png" id="2_ibjtp"]
+[ext_resource type="PackedScene" uid="uid://c41rh40r3gpfx" path="res://Core/Components/hitbox.tscn" id="3_up3j2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhbeg"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7d07"]
+size = Vector2(16, 16)
+
+[node name="Zone" type="Area2D" unique_id=494479517]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_1k8g1")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=840783857]
+texture = ExtResource("2_ibjtp")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1479245305]
+shape = SubResource("RectangleShape2D_dhbeg")
+
+[node name="Hitbox" parent="." unique_id=1081346483 instance=ExtResource("3_up3j2")]
+
+[node name="CollisionShape" parent="Hitbox" index="0" unique_id=553464858]
+shape = SubResource("RectangleShape2D_c7d07")
+debug_color = Color(0.9991004, 0, 0.13663247, 0.41960785)
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1561584314]
+one_shot = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
+
+[editable path="Hitbox"]
