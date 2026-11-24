@@ -30,5 +30,5 @@ func apply_status(status_data: StatusData, stacks: int) -> void:
 	active_status.append(new_status)
 
 
-func remove_status() -> void:
+func remove_all_status() -> void:
 	active_status.clear()

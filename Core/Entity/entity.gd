@@ -67,8 +67,9 @@ func _on_health_changed(_old_value: int, _new_value: int) -> void:
 
 
 func _on_hit(attack: AttackDetails) -> void:
-	for state_machine in state_machines:
-		state_machine.deliver_event(EntityState.HIT, {EntityState.ATTACK: attack})
+	if attack.triggers_hit_reaction:
+		for state_machine in state_machines:
+			state_machine.deliver_event(EntityState.HIT, {EntityState.ATTACK: attack})
 	health.take_damage(attack.damage)
 	if attack.status_data:
 		status.apply_status(attack.status_data, attack.stacks_per_hit)

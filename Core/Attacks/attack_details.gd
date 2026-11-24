@@ -7,3 +7,4 @@ var element: Elements.Type = Elements.Type.NEUTRAL
 var status_data: StatusData
 var stacks_per_hit: int = 1
 var source: Entity = null
+var triggers_hit_reaction: bool = true

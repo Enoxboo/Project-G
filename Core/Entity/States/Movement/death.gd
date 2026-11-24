@@ -4,7 +4,7 @@ extends MovementState
 func enter(_external_entries: Dictionary = {}) -> void:
 	entity.velocity = Vector2.ZERO
 	entity.hurtbox.disable()
-	entity.status.remove_status()
+	entity.status.remove_all_status()
 
 	print(entity.name + " died")
 

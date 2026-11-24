@@ -16,3 +16,4 @@ enum SpellType {
 @export var lifetime: float = 5.0
 @export var piercing_total: int = 0
 @export var destroyed_on_wall: bool = true
+@export var triggers_hit_reaction: bool = true

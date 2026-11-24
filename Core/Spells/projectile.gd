@@ -21,6 +21,7 @@ func _ready() -> void:
 	hitbox.stacks_per_hit = spell_data.stacks_per_hit
 	hitbox.hitbox_memory = true
 	hitbox.collision_mask = Teams.get_opponent_hurtbox_layer(caster.data.team)
+	hitbox.triggers_hit_reaction = spell_data.triggers_hit_reaction
 
 	collision_layer = Teams.get_spell_layer(caster.data.team)
 	collision_mask = Teams.WALLS if spell_data.destroyed_on_wall else 0
