@@ -12,8 +12,11 @@ enum SpellType {
 @export var status_data: StatusData
 @export var stacks_per_hit: int = 1
 @export var spell_type: SpellType
-@export var speed: float = 500.0
 @export var lifetime: float = 5.0
+@export var triggers_hit_reaction: bool = true
+
+@export var speed: float = 500.0
 @export var piercing_total: int = 0
 @export var destroyed_on_wall: bool = true
-@export var triggers_hit_reaction: bool = true
+
+@export var time_between_ticks: float = 1.0

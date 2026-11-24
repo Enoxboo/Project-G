@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://bf8h368opq3dj"]
+
+[ext_resource type="Script" uid="uid://bk8vu1imgi3md" path="res://Core/Spells/spell_data.gd" id="1_k3gq2"]
+[ext_resource type="PackedScene" uid="uid://b7i7qd7ulur8j" path="res://Core/Spells/blaze.tscn" id="2_gfjt4"]
+[ext_resource type="Resource" uid="uid://dw08whmjcy5uf" path="res://Core/Status/burn.tres" id="2_ncfj5"]
+
+[resource]
+script = ExtResource("1_k3gq2")
+damage = 0
+element = 1
+status_data = ExtResource("2_ncfj5")
+spell_type = 2
+lifetime = 10.0
+triggers_hit_reaction = false
+speed = 0.0
+destroyed_on_wall = false
+time_between_ticks = 2.0
+name = &"Brasier"
+cooldown = 15.0
+windup_time = 1.0
+spell_scene = ExtResource("2_gfjt4")
+metadata/_custom_type_script = "uid://bk8vu1imgi3md"

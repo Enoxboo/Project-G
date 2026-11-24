@@ -10,6 +10,7 @@ signal hitbox_hit(hurtbox: Hurtbox)
 @export var stacks_per_hit: int = 1
 @export var hitbox_memory: bool = true
 @export var triggers_hit_reaction: bool = true
+@export var hit_on_contact: bool = true
 
 var hurtbox_list: Array[Hurtbox]
 
@@ -42,4 +43,5 @@ func hit_everything_inside() -> void:
 
 
 func _on_area_entered(hurtbox: Hurtbox) -> void:
-	hit_hurtbox(hurtbox)
+	if hit_on_contact:
+		hit_hurtbox(hurtbox)

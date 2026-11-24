@@ -61,6 +61,7 @@ collision_layer = 64
 
 [node name="Health" type="Node" parent="." unique_id=1018172600]
 script = ExtResource("9_xngfm")
+max_health = 100
 metadata/_custom_type_script = "uid://bhboo2yxrnbx3"
 
 [node name="Status" type="Node" parent="." unique_id=1469026026]
