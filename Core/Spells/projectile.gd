@@ -17,6 +17,8 @@ func _ready() -> void:
 	hitbox.source = caster
 	hitbox.element = spell_data.element
 	hitbox.damage = spell_data.damage
+	hitbox.status_data = spell_data.status_data
+	hitbox.stacks_per_hit = spell_data.stacks_per_hit
 	hitbox.hitbox_memory = true
 	hitbox.collision_mask = Teams.get_opponent_hurtbox_layer(caster.data.team)
 

@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bk8vu1imgi3md" path="res://Core/Spells/spell_data.gd" id="1_x75gw"]
 [ext_resource type="PackedScene" uid="uid://dcbtjyxj4vbm" path="res://Core/Spells/projectile.tscn" id="2_rd6ms"]
+[ext_resource type="Resource" uid="uid://dw08whmjcy5uf" path="res://Core/Status/burn.tres" id="3_8weyi"]
 
 [resource]
 script = ExtResource("1_x75gw")
+status_data = ExtResource("3_8weyi")
 spell_type = 1
 speed = 300.0
 lifetime = 1.0

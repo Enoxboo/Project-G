@@ -6,6 +6,8 @@ signal hitbox_hit(hurtbox: Hurtbox)
 @export var source: Entity
 @export var element: Elements.Type = Elements.Type.NEUTRAL
 @export var damage: int = 1
+@export var status_data: StatusData
+@export var stacks_per_hit: int = 1
 @export var hitbox_memory: bool = true
 
 var hurtbox_list: Array[Hurtbox]
@@ -19,6 +21,8 @@ func _on_area_entered(hurtbox: Hurtbox) -> void:
 	attack.source = source
 	attack.element = element
 	attack.damage = damage
+	attack.status_data = status_data
+	attack.stacks_per_hit = stacks_per_hit
 	attack.direction = (hurtbox.global_position - global_position).normalized()
 
 	if hitbox_memory:

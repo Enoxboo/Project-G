@@ -28,3 +28,7 @@ func apply_status(status_data: StatusData, stacks: int) -> void:
 	new_status.status_data = status_data
 	new_status.add_stacks(stacks)
 	active_status.append(new_status)
+
+
+func remove_status() -> void:
+	active_status.clear()

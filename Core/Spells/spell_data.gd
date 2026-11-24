@@ -9,6 +9,8 @@ enum SpellType {
 
 @export var damage: int = 1
 @export var element: Elements.Type
+@export var status_data: StatusData
+@export var stacks_per_hit: int = 1
 @export var spell_type: SpellType
 @export var speed: float = 500.0
 @export var lifetime: float = 5.0
