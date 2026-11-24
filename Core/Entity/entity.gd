@@ -9,10 +9,11 @@ var last_direction: Vector2 = Vector2.RIGHT
 var intent: Intent = Intent.new()
 var slots: Array[Slot]
 var speed_multiplier: float = 1.0
-var cooldown_multiplier: float = 2.0
-var state_machines: Array[StateMachine] = []
+var cooldown_multiplier: float = 1.0
+var state_machines: Array[StateMachine]
 var health: Health
 var hurtbox: Hurtbox
+var status: Status
 
 
 func _ready() -> void:
@@ -35,10 +36,14 @@ func _connect_children() -> void:
 		if child is Hurtbox:
 			hurtbox = child
 			child.was_hit.connect(_on_hit)
+		if child is Status:
+			status = child
+			child.status_damage_dealt.connect(_damaged_by_status)
 
 	assert(controller, "Need a controller in " + self.name)
 	assert(health, "Need a health in " + self.name)
 	assert(hurtbox, "Need a hurtbox in " + self.name)
+	assert(status, "Need a status in " + self.name)
 
 
 func _physics_process(delta: float) -> void:
@@ -65,3 +70,7 @@ func _on_hit(attack: AttackDetails) -> void:
 	for state_machine in state_machines:
 		state_machine.deliver_event(EntityState.HIT, {EntityState.ATTACK: attack})
 	health.take_damage(attack.damage)
+
+
+func _damaged_by_status(damage: int, _status: StatusData) -> void:
+	health.take_damage(damage)

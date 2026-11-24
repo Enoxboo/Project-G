@@ -8,7 +8,7 @@ signal hitbox_hit(hurtbox: Hurtbox)
 @export var damage: int = 1
 @export var hitbox_memory: bool = true
 
-var hurtbox_list: Array[Hurtbox] = []
+var hurtbox_list: Array[Hurtbox]
 
 
 func _on_area_entered(hurtbox: Hurtbox) -> void:

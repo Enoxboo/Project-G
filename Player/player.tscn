@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://cyrfhfgixqsmj" path="res://Core/Entity/States/Action/active.gd" id="16_b1ygp"]
 [ext_resource type="Script" uid="uid://bhboo2yxrnbx3" path="res://Core/Components/Health/health.gd" id="16_lfmf2"]
 [ext_resource type="PackedScene" uid="uid://lhhy4tqrr168" path="res://Core/Components/hurtbox.tscn" id="17_pisgm"]
+[ext_resource type="Script" uid="uid://biba36mtanpo4" path="res://Core/Components/status.gd" id="20_n471f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk4vj"]
 size = Vector2(16, 16)
@@ -96,3 +97,7 @@ metadata/_custom_type_script = "uid://ddf1i88vs5cc3"
 [node name="Health" type="Node" parent="." unique_id=1770523736]
 script = ExtResource("16_lfmf2")
 metadata/_custom_type_script = "uid://bhboo2yxrnbx3"
+
+[node name="Status" type="Node" parent="." unique_id=1051737228]
+script = ExtResource("20_n471f")
+metadata/_custom_type_script = "uid://biba36mtanpo4"
