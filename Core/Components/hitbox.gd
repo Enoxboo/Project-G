@@ -14,7 +14,7 @@ signal hitbox_hit(hurtbox: Hurtbox)
 var hurtbox_list: Array[Hurtbox]
 
 
-func _on_area_entered(hurtbox: Hurtbox) -> void:
+func hit_hurtbox(hurtbox: Hurtbox) -> void:
 	if hitbox_memory and hurtbox_list.has(hurtbox):
 		return
 
@@ -32,3 +32,12 @@ func _on_area_entered(hurtbox: Hurtbox) -> void:
 
 	hurtbox.on_hit(attack)
 	hitbox_hit.emit(hurtbox)
+
+
+func hit_everything_inside() -> void:
+	for area in get_overlapping_areas():
+		hit_hurtbox(area as Hurtbox)
+
+
+func _on_area_entered(hurtbox: Hurtbox) -> void:
+	hit_hurtbox(hurtbox)
