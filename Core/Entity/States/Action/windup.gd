@@ -7,8 +7,8 @@ var slot: Slot
 func enter(external_entries: Dictionary = {}) -> void:
 	slot = external_entries["slot"]
 
-	if slot.action.windup_time > 0.0:
-		windup_timer.start(slot.action.windup_time)
+	if slot.spell_data.windup_time > 0.0:
+		windup_timer.start(slot.spell_data.windup_time)
 
 
 func update() -> void:

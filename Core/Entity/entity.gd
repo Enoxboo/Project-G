@@ -3,7 +3,7 @@ class_name Entity
 
 @export var data: EntityData
 @export var controller: Controller
-@export var actions: Array[ActionData]
+@export var spells: Array[SpellData]
 
 var last_direction: Vector2 = Vector2.RIGHT
 var intent: Intent = Intent.new()
@@ -18,11 +18,11 @@ var status: Status
 
 func _ready() -> void:
 	_connect_children()
-	for i in actions.size():
-		actions[i] = actions[i].duplicate() if actions[i] else null
+	for i in spells.size():
+		spells[i] = spells[i].duplicate() if spells[i] else null
 		slots.append(Slot.new())
-		slots[i].fill_slot(actions[i])
-	intent.actions.resize(slots.size())
+		slots[i].fill_slot(spells[i])
+	intent.spells.resize(slots.size())
 
 
 func _connect_children() -> void:

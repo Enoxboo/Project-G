@@ -4,12 +4,9 @@ class_name Zone
 @onready var life_timer: Timer = $LifeTimer
 @onready var hitbox: Hitbox = $Hitbox
 
-var spell_data: SpellData
-
 
 func _ready() -> void:
 	global_position = target_point
-	spell_data = action_data
 
 	hitbox.source = caster
 	hitbox.element = spell_data.element
@@ -23,6 +20,7 @@ func _ready() -> void:
 
 	collision_layer = Teams.get_spell_layer(caster.data.team)
 	collision_mask = 0
+	super._ready()
 
 	life_timer.start(spell_data.lifetime)
 

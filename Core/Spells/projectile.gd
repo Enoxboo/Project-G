@@ -4,14 +4,12 @@ extends Spell
 @onready var hitbox: Hitbox = $Hitbox
 
 var direction: Vector2
-var spell_data: SpellData
 var opponent_count: int = 0
 
 
 func _ready() -> void:
 	global_position = caster.global_position
 	direction = (target_point - caster.global_position).normalized()
-	spell_data = action_data
 
 	hitbox.hitbox_hit.connect(_on_hitbox_hit)
 	hitbox.source = caster
@@ -25,6 +23,7 @@ func _ready() -> void:
 
 	collision_layer = Teams.get_spell_layer(caster.data.team)
 	collision_mask = Teams.WALLS if spell_data.destroyed_on_wall else 0
+	super._ready()
 
 	life_timer.start(spell_data.lifetime)
 

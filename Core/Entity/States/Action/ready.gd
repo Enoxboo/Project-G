@@ -3,7 +3,7 @@ extends ActionState
 
 func update() -> void:
 	for i in entity.slots.size():
-		if not entity.intent.actions[i]:
+		if not entity.intent.spells[i]:
 			continue
 
 		if not entity.slots[i].is_ready():
@@ -14,10 +14,10 @@ func update() -> void:
 		return
 
 
-func print_cooldown_debug(action_spot: int) -> void:
-	if not entity.slots[action_spot].action:
-		print("This action is not assigned yet")
+func print_cooldown_debug(spell_spot: int) -> void:
+	if not entity.slots[spell_spot].spell_data:
+		print("This spell is not assigned yet")
 		return
 
-	print(entity.slots[action_spot].action.name + " isn't ready yet. Cooldown left : " +
-			str(entity.slots[action_spot].time_left))
+	print(entity.slots[spell_spot].spell_data.name + " isn't ready yet. Cooldown left : " +
+			str(entity.slots[spell_spot].time_left))

@@ -1,21 +1,21 @@
 extends RefCounted
 class_name Slot
 
-var action: ActionData
+var spell_data: SpellData
 var time_left: float = 0.0
 #var mutation
 
 
-func fill_slot(p_action: ActionData) -> void:
-	action = p_action
+func fill_slot(spell: SpellData) -> void:
+	spell_data = spell
 
 
 func start_cooldown() -> void:
-	time_left = action.cooldown
+	time_left = spell_data.cooldown
 
 
 func is_ready() -> bool:
-	if not action:
+	if not spell_data:
 		return false
 
 	return time_left == 0.0
