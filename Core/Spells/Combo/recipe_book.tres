@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RecipeBook" format=3 uid="uid://2053rjn7yenb"]
+
+[ext_resource type="Script" uid="uid://1y0swgpjvhui" path="res://Core/Spells/Combo/recipe.gd" id="1_lst68"]
+[ext_resource type="Script" uid="uid://bvhgqd35x1qrl" path="res://Core/Spells/Combo/recipe_book.gd" id="2_eut8a"]
+
+[sub_resource type="Resource" id="Resource_nj0bi"]
+script = ExtResource("1_lst68")
+type_a = 1
+element_a = 1
+type_b = 2
+element_b = 1
+metadata/_custom_type_script = "uid://1y0swgpjvhui"
+
+[resource]
+script = ExtResource("2_eut8a")
+recipes = Array[ExtResource("1_lst68")]([SubResource("Resource_nj0bi")])
+metadata/_custom_type_script = "uid://bvhgqd35x1qrl"
