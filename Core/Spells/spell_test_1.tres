@@ -6,12 +6,9 @@
 
 [resource]
 script = ExtResource("1_x75gw")
+name = &"Instant"
+spell_scene = ExtResource("2_rd6ms")
+element = 1
 status_data = ExtResource("3_8weyi")
 spell_type = 1
-speed = 300.0
-lifetime = 1.0
-piercing_total = 1
-name = &"Instant"
-cooldown = 0.5
-spell_scene = ExtResource("2_rd6ms")
 metadata/_custom_type_script = "uid://bk8vu1imgi3md"

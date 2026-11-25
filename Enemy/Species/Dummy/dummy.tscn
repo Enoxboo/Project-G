@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bsuc427ivsofb" path="res://Assets/player.png" id="2_1oxg3"]
 [ext_resource type="Resource" uid="uid://d21ubccr8ewee" path="res://Enemy/Species/Dummy/dummy_data.tres" id="2_p07k7"]
 [ext_resource type="Script" uid="uid://c5leqe4fywlya" path="res://Enemy/enemy_controller.gd" id="3_4xy2c"]
+[ext_resource type="Script" uid="uid://bk8vu1imgi3md" path="res://Core/Spells/spell_data.gd" id="3_70a5o"]
 [ext_resource type="Script" uid="uid://ba5ormvx1un17" path="res://Core/FSM/state_machine.gd" id="4_p07k7"]
 [ext_resource type="Script" uid="uid://dp0tdfe01r4n4" path="res://Core/Entity/States/Movement/idle.gd" id="6_p07k7"]
 [ext_resource type="Script" uid="uid://bbq2bx7b8rnly" path="res://Core/Entity/States/Movement/run.gd" id="7_f35ph"]
@@ -21,6 +22,7 @@ collision_layer = 32
 script = ExtResource("1_p07k7")
 data = ExtResource("2_p07k7")
 controller = NodePath("EnemyController")
+spells = Array[ExtResource("3_70a5o")]([null, null, null])
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=371370915]
 modulate = Color(1, 0, 0, 1)

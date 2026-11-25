@@ -14,8 +14,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	for hurtbox in hurtbox_memory:
 		hurtbox_memory[hurtbox] += delta
-		if hurtbox_memory[hurtbox] >= spell_data.time_between_ticks:
-			hurtbox_memory[hurtbox] -= spell_data.time_between_ticks
+		if hurtbox_memory[hurtbox] >= data.time_between_ticks:
+			hurtbox_memory[hurtbox] -= data.time_between_ticks
 			hitbox.hit_hurtbox(hurtbox)
 
 

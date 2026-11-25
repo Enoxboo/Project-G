@@ -6,8 +6,8 @@ var time_left: float = 0.0
 #var mutation
 
 
-func fill_slot(spell: SpellData) -> void:
-	spell_data = spell
+func fill_slot(p_spell_data: SpellData) -> void:
+	spell_data = p_spell_data
 
 
 func start_cooldown() -> void:

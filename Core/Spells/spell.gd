@@ -3,13 +3,14 @@ class_name Spell
 
 var caster: Entity
 var target_point: Vector2
-var spell_data: SpellData
+var data: SpellData
+var locked: bool = false
 
 
-func setup(p_caster: Entity, p_target: Vector2, p_spell_data: SpellData) -> void:
-	caster = p_caster
-	target_point = p_target
-	spell_data = p_spell_data
+func setup(entity: Entity, target: Vector2, spell_data: SpellData) -> void:
+	caster = entity
+	target_point = target
+	data = spell_data
 
 
 func _ready() -> void:
@@ -17,11 +18,11 @@ func _ready() -> void:
 	area_entered.connect(_on_spell_entered)
 
 
-static func create(p_caster: Entity, p_target: Vector2, p_spell_data: SpellData, world: Node) -> void:
-	var spell: Spell = p_spell_data.spell_scene.instantiate() as Spell
+static func create(entity: Entity, target: Vector2, spell_data: SpellData, world: Node) -> void:
+	var spell: Spell = spell_data.spell_scene.instantiate() as Spell
 	assert(spell, "The instantiated scene is not a Spell.")
 
-	spell.setup(p_caster, p_target, p_spell_data)
+	spell.setup(entity, target, spell_data)
 	world.add_child(spell)
 
 
@@ -29,3 +30,15 @@ func _on_spell_entered(area: Area2D) -> void:
 	var spell: Spell = area as Spell
 	if not spell:
 		return
+	if spell.locked or locked:
+		return
+	if spell.data == data:
+		return
+	if not spell.data.can_combo or not data.can_combo:
+		return
+	if get_instance_id() < spell.get_instance_id():
+		return
+
+	locked = true
+	spell.locked = true
+	print(data.name + " hit " + spell.data.name)
