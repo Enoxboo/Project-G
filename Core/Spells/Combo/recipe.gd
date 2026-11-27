@@ -1,8 +1,6 @@
 extends Resource
 class_name Recipe
 
-@export var type_a: SpellData.SpellType
-@export var element_a: Elements.Type
-@export var type_b: SpellData.SpellType
-@export var element_b: Elements.Type
+@export var ingredient_a: Ingredient
+@export var ingredient_b: Ingredient
 @export var combo: SpellData

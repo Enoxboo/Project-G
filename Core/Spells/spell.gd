@@ -39,6 +39,8 @@ func _on_spell_entered(area: Area2D) -> void:
 	if get_instance_id() < spell.get_instance_id():
 		return
 
-	locked = true
-	spell.locked = true
-	print(data.name + " hit " + spell.data.name)
+	var combo: SpellData = RecipeBook.find_combo(data, spell.data)
+	if combo:
+		print(combo)
+		locked = true
+		spell.locked = true

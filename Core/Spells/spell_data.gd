@@ -1,7 +1,7 @@
 extends Resource
 class_name SpellData
 
-enum SpellType {
+enum SpellForm {
 	BUFF,
 	PROJECTILE,
 	ZONE
@@ -16,7 +16,7 @@ enum SpellType {
 @export var element: Elements.Type
 @export var status_data: StatusData
 @export var stacks_per_hit: int = 1
-@export var spell_type: SpellType
+@export var form: SpellForm
 @export var lifetime: float = 5.0
 @export var triggers_hit_reaction: bool = true
 @export var can_combo: bool = true

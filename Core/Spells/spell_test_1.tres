@@ -10,5 +10,5 @@ name = &"Instant"
 spell_scene = ExtResource("2_rd6ms")
 element = 1
 status_data = ExtResource("3_8weyi")
-spell_type = 1
+form = 1
 metadata/_custom_type_script = "uid://bk8vu1imgi3md"
