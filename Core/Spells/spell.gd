@@ -41,6 +41,17 @@ func _on_spell_entered(area: Area2D) -> void:
 
 	var combo: SpellData = RecipeBook.find_combo(data, spell.data)
 	if combo:
-		print(combo)
-		locked = true
-		spell.locked = true
+		_perform_combo(spell, combo)
+
+
+func _perform_combo(spell: Spell, combo: SpellData) -> void:
+	var middle: Vector2 = (global_position + spell.global_position) / 2.0
+	var world: Node = get_tree().current_scene
+
+	locked = true
+	spell.locked = true
+
+	Spell.create.call_deferred(caster, middle, combo, world)
+
+	spell.queue_free()
+	queue_free()

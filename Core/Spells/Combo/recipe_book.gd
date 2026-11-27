@@ -3,9 +3,12 @@ class_name RecipeBook
 
 @export var recipes: Array[Recipe]
 
+static var recipe_book: RecipeBook
 
 static func find_combo(spell_a: SpellData, spell_b: SpellData) -> SpellData:
-	var recipe_book: RecipeBook = load("res://Core/Spells/Combo/recipe_book.tres")
+	if not recipe_book:
+		recipe_book = load("res://Core/Spells/Combo/recipe_book.tres")
+
 	var loaded_recipes: Array[Recipe] = recipe_book.recipes
 	for recipe in loaded_recipes:
 		if recipe_matches(recipe, spell_a, spell_b):
