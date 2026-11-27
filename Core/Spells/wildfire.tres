@@ -1,20 +1,21 @@
 [gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://cqidl4bbfpxqe"]
 
 [ext_resource type="Script" uid="uid://bk8vu1imgi3md" path="res://Core/Spells/spell_data.gd" id="1_qj52e"]
-[ext_resource type="PackedScene" uid="uid://bj762qdp0aov0" path="res://Core/Spells/zone.tscn" id="2_y2ktp"]
+[ext_resource type="PackedScene" uid="uid://bgl6re1vxokxh" path="res://Core/Spells/wildfire.tscn" id="2_qj52e"]
 [ext_resource type="Resource" uid="uid://dw08whmjcy5uf" path="res://Core/Status/burn.tres" id="3_mbn7a"]
 
 [resource]
 script = ExtResource("1_qj52e")
 name = &"Wildfire"
 cooldown = 0.0
-spell_scene = ExtResource("2_y2ktp")
-damage = 3
+spell_scene = ExtResource("2_qj52e")
+damage = 5
 element = 1
 status_data = ExtResource("3_mbn7a")
 stacks_per_hit = 3
 form = 2
-lifetime = 2.0
+lifetime = 0.4
+triggers_hit_reaction = false
 can_combo = false
 speed = 0.0
 destroyed_on_wall = false
