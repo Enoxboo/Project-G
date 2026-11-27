@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RecipeBook" format=3 uid="uid://2053rjn7yenb"]
 
 [ext_resource type="Script" uid="uid://1y0swgpjvhui" path="res://Core/Spells/Combo/recipe.gd" id="1_lst68"]
-[ext_resource type="Resource" uid="uid://cqidl4bbfpxqe" path="res://Core/Spells/wildfire.tres" id="2_3konb"]
+[ext_resource type="Resource" uid="uid://cqidl4bbfpxqe" path="res://Spells/Fire/Wildfire/wildfire.tres" id="2_3konb"]
 [ext_resource type="Script" uid="uid://bvhgqd35x1qrl" path="res://Core/Spells/Combo/recipe_book.gd" id="2_eut8a"]
 [ext_resource type="Script" uid="uid://b2y8aq6c4ecpo" path="res://Core/Spells/Combo/ingredient.gd" id="2_ur72s"]
 

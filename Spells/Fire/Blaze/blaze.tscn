@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b7i7qd7ulur8j"]
+
+[ext_resource type="PackedScene" uid="uid://bj762qdp0aov0" path="res://Core/Spells/Zone/zone.tscn" id="1_gnuoc"]
+[ext_resource type="Script" uid="uid://bgj2slghb7b3i" path="res://Spells/Fire/Blaze/blaze.gd" id="2_nchcm"]
+
+[node name="Blaze" unique_id=494479517 instance=ExtResource("1_gnuoc")]
+script = ExtResource("2_nchcm")
+
+[editable path="Hitbox"]

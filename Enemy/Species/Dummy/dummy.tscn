@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://1lkvlw5n5po0" path="res://Core/Entity/States/Movement/knockback.gd" id="8_161r8"]
 [ext_resource type="PackedScene" uid="uid://lhhy4tqrr168" path="res://Core/Components/hurtbox.tscn" id="8_h6fik"]
 [ext_resource type="Script" uid="uid://f7d0kjhc275" path="res://Core/Entity/States/Movement/death.gd" id="9_pquud"]
-[ext_resource type="Script" uid="uid://bhboo2yxrnbx3" path="res://Core/Components/Health/health.gd" id="9_xngfm"]
+[ext_resource type="Script" uid="uid://bhboo2yxrnbx3" path="res://Core/Components/health.gd" id="9_xngfm"]
 [ext_resource type="Script" uid="uid://biba36mtanpo4" path="res://Core/Components/status.gd" id="13_70a5o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iysjv"]

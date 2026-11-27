@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://cqidl4bbfpxqe"]
 
 [ext_resource type="Script" uid="uid://bk8vu1imgi3md" path="res://Core/Spells/spell_data.gd" id="1_qj52e"]
-[ext_resource type="PackedScene" uid="uid://bgl6re1vxokxh" path="res://Core/Spells/wildfire.tscn" id="2_qj52e"]
+[ext_resource type="PackedScene" uid="uid://bgl6re1vxokxh" path="res://Spells/Fire/Wildfire/wildfire.tscn" id="2_qj52e"]
 [ext_resource type="Resource" uid="uid://dw08whmjcy5uf" path="res://Core/Status/burn.tres" id="3_mbn7a"]
 
 [resource]

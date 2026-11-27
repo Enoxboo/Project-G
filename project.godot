@@ -31,7 +31,8 @@ folder_colors={
 "res://Core/": "orange",
 "res://Enemy/": "red",
 "res://Levels/": "blue",
-"res://Player/": "purple"
+"res://Player/": "purple",
+"res://Spells/": "yellow"
 }
 
 [global_group]

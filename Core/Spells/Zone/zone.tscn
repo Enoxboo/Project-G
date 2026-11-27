@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj762qdp0aov0"]
 
-[ext_resource type="Script" uid="uid://bscjjabhv0x3m" path="res://Core/Spells/zone.gd" id="1_1k8g1"]
+[ext_resource type="Script" uid="uid://bscjjabhv0x3m" path="res://Core/Spells/Zone/zone.gd" id="1_1k8g1"]
 [ext_resource type="Texture2D" uid="uid://bsuc427ivsofb" path="res://Assets/player.png" id="2_ibjtp"]
 [ext_resource type="PackedScene" uid="uid://c41rh40r3gpfx" path="res://Core/Components/hitbox.tscn" id="3_up3j2"]
 

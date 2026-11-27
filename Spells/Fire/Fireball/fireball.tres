@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://cq7kpl27fgpwb"]
+
+[ext_resource type="Script" uid="uid://bk8vu1imgi3md" path="res://Core/Spells/spell_data.gd" id="1_2s0jw"]
+[ext_resource type="PackedScene" uid="uid://dcbtjyxj4vbm" path="res://Core/Spells/Projectile/projectile.tscn" id="2_8kc1f"]
+[ext_resource type="Resource" uid="uid://dw08whmjcy5uf" path="res://Core/Status/burn.tres" id="3_gfeue"]
+
+[resource]
+script = ExtResource("1_2s0jw")
+name = &"Fireball"
+spell_scene = ExtResource("2_8kc1f")
+element = 1
+status_data = ExtResource("3_gfeue")
+form = 1
+metadata/_custom_type_script = "uid://bk8vu1imgi3md"

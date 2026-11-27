@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bgl6re1vxokxh"]
 
-[ext_resource type="PackedScene" uid="uid://bj762qdp0aov0" path="res://Core/Spells/zone.tscn" id="1_6vx25"]
-[ext_resource type="Script" uid="uid://chc3qcejfpxqq" path="res://Core/Spells/wildfire.gd" id="2_1of3n"]
-[ext_resource type="Texture2D" uid="uid://ct5t5sn1jmfhi" path="res://Assets/ring.png" id="3_5orsa"]
+[ext_resource type="PackedScene" uid="uid://bj762qdp0aov0" path="res://Core/Spells/Zone/zone.tscn" id="1_xbplh"]
+[ext_resource type="Script" uid="uid://chc3qcejfpxqq" path="res://Spells/Fire/Wildfire/wildfire.gd" id="2_pruw4"]
+[ext_resource type="Texture2D" uid="uid://ct5t5sn1jmfhi" path="res://Assets/ring.png" id="3_k18rq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1of3n"]
 radius = 7.0
@@ -10,11 +10,11 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_cdyvi"]
 radius = 8.0
 
-[node name="Wildfire" unique_id=494479517 instance=ExtResource("1_6vx25")]
-script = ExtResource("2_1of3n")
+[node name="Wildfire" unique_id=494479517 instance=ExtResource("1_xbplh")]
+script = ExtResource("2_pruw4")
 
 [node name="Sprite" parent="." index="0" unique_id=840783857]
-texture = ExtResource("3_5orsa")
+texture = ExtResource("3_k18rq")
 
 [node name="Collision" parent="." index="1" unique_id=1479245305]
 shape = SubResource("CircleShape2D_1of3n")
